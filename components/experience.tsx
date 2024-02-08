@@ -1,7 +1,7 @@
 import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import Tech from "@/components/tech";
 
-export default function Diploma(props) {
+export default function Experience(props) {
     return (
         <Card className="my-5 dark:text-white  dark:bg-neutral-900 p-2">
             <CardHeader className="p-0 m-4">
@@ -47,14 +47,9 @@ export default function Diploma(props) {
                     <div className="border-r border-gray-200"></div>
                     <div className="px-5 flex items-center">
                         <div className="flex flex-row flex-wrap">
-                            <Tech/>
-                            <Tech/>
-                            <Tech/>
-                            <Tech/>
-                            <Tech/>
-                            <Tech/>
-                            <Tech/>
-                            <Tech/>
+                            {props.techs.map((tech, index) => (
+                                <Tech key={index} {...tech} />
+                            ))}
                         </div>
                     </div>
                 </div>

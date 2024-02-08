@@ -112,13 +112,13 @@ export default function SideNav() {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/knowledge"
+                            <Link href="/work-experiences"
                                   className={clsx('flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 group'   ,
                                       {
-                                          'bg-gray-100 dark:bg-zinc-800': pathname === "/knowledge",
+                                          'bg-gray-100 dark:bg-zinc-800': pathname === "/work-experiences",
                                       },
                                   )}>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Knowledge</span>
+                                <span className="flex-1 ms-3 whitespace-nowrap">Work Experiences</span>
                             </Link>
                         </li>
                         <li>

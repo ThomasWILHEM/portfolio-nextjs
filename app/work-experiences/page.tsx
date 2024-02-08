@@ -7,7 +7,7 @@ export default async function Home() {
     const experiences = await prisma.experience.findMany({
         where: {
             type: {
-                equals : 'study'
+                equals : 'work'
             }
         },
         include:{ techs: true }
@@ -17,7 +17,7 @@ export default async function Home() {
     return (
         <main className={`p-14 h-screen bg`}>
         <h1 className='mb-4 text-4xl'>
-            Studies
+            Work Experiences
         </h1>
         <div className="my-8 mx-12">
             {experiences.map((experience, index) => (

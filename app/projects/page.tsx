@@ -1,27 +1,21 @@
 import Experience from "@/components/experience";
 import {useTheme} from "next-themes";
 import {prisma} from "@/lib/prisma";
+import Project from "@/components/project";
 
 export default async function Home() {
     //const { theme } = useTheme()
-    const experiences = await prisma.experience.findMany({
-        where: {
-            type: {
-                equals : 'study'
-            }
-        },
-        include:{ techs: true }
-    });
+    const projects = await prisma.project.findMany();
 
 
     return (
         <main className={`p-14 h-screen bg`}>
         <h1 className='mb-4 text-4xl'>
-            Studies
+            Projects
         </h1>
-        <div className="my-8 mx-12">
-            {experiences.map((experience, index) => (
-                <Experience key={index} {...experience} />
+        <div className="my-8 mx-12 flex flex-row flex-wrap">
+            {projects.map((project, index) => (
+                <Project key={index} {...project} />
             ))}
         </div>
     </main>
