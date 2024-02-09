@@ -15,7 +15,7 @@ export default async function Home() {
 
 
     return (
-        <main className={`lg:p-14 p-6 h-screen bg`}>
+        <main className={`lg:p-14 p-6 h-full bg`}>
             <h1 className='mb-4 text-4xl'>
                 Studies
             </h1>

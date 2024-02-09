@@ -9,7 +9,7 @@ export default async function Home() {
 
 
     return (
-        <main className={`p-14 h-screen bg`}>
+        <main className={`p-14 h-full bg`}>
         <h1 className='mb-4 text-4xl'>
             Projects
         </h1>
