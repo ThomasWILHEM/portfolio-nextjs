@@ -9,11 +9,11 @@ export default async function Home() {
 
 
     return (
-        <main className={`p-14 h-full bg`}>
+        <main className={`lg:p-14 p-6 h-full bg`}>
         <h1 className='mb-4 text-4xl'>
             Projects
         </h1>
-        <div className="my-8 mx-12 flex flex-row flex-wrap">
+        <div className="my-8 lg:mx-12 flex flex-row flex-wrap justify-around">
             {projects.map((project, index) => (
                 <Project key={index} {...project} />
             ))}

@@ -7,7 +7,7 @@ export default function Project(props) {
 
     console.log(props)
     return (
-        <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 w-2/5 mx-5">
+        <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 lg:w-2/5 mx-5">
             <CardHeader className="p-0 m-4">
                 <CardTitle className="text-2xl">
                     {props.name}
