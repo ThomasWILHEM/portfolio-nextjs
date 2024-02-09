@@ -2,23 +2,30 @@ import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/compo
 import Tech from "@/components/tech";
 
 interface props{
-    level: number,
+    level: number|null,
 }
 
 export default function Frise({level}: props) {
     const segments = Array(5).fill(null);
-    const styles = {
-        barre: {
-            width: '100%',
-            height: '10px',
-            backgroundColor: '#333333',
-        },
-        segment: {
-            width: `${20 * level}%`,
-            height: '10px',
-            backgroundColor: '#D9D9D9',
-        },
+
+    var styles={
+        barre: {},
+        segment: {}
     };
+    if(level != null) {
+        styles = {
+            barre: {
+                width: '100%',
+                height: '10px',
+                backgroundColor: '#333333',
+            },
+            segment: {
+                width: `${20 * level}%`,
+                height: '10px',
+                backgroundColor: '#D9D9D9',
+            },
+        };
+    }
 
     return (
         <div className="w-full space-y-2">

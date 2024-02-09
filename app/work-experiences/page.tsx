@@ -4,7 +4,7 @@ import {prisma} from "@/lib/prisma";
 
 export default async function Home() {
     //const { theme } = useTheme()
-    const experiences = await prisma.experience.findMany({
+    const experiences: Experience[] = await prisma.experience.findMany({
         where: {
             type: {
                 equals : 'work'

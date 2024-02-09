@@ -2,9 +2,9 @@ type Project = {
     name: string
     short_description: string
     description: string
-    slug?: string
-    demo_path?: string
-    github_path?: string
+    slug: string | null;
+    demo_path: string | null;
+    github_path: string | null;
 }
 
 type Experience = {
@@ -21,6 +21,6 @@ type Tech = {
     name: string
     image_path: string
     type: string
-    level: number
-    experiences: Experience[]
+    level: number | null;
+    experiences?: Experience[] | null
 }

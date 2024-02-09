@@ -5,7 +5,7 @@ import Project from "@/components/project";
 
 export default async function Home() {
     //const { theme } = useTheme()
-    const projects = await prisma.project.findMany();
+    const projects: Project[] = await prisma.project.findMany();
 
     return (
         <main className={`lg:p-14 p-6 h-full bg`}>

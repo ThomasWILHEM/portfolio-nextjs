@@ -7,7 +7,7 @@ import Frise from "@/components/frise";
 import Levels from "@/components/levels";
 
 export default async function Home() {
-    const languages = await prisma.tech.findMany({
+    const languages: Tech[] = await prisma.tech.findMany({
         where: {
             type: {
                 equals : 'language'
@@ -15,7 +15,7 @@ export default async function Home() {
         }
     });
 
-    const frameworks = await prisma.tech.findMany({
+    const frameworks: Tech[] = await prisma.tech.findMany({
         where: {
             type: {
                 equals : 'framework'
@@ -23,7 +23,7 @@ export default async function Home() {
         }
     });
 
-    const utils = await prisma.tech.findMany({
+    const utils: Tech[] = await prisma.tech.findMany({
         where: {
             type: {
                 equals : 'utils'
