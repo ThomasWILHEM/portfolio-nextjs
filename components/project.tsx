@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export default function Project(props) {
 
-    console.log(props)
     return (
         <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 lg:w-2/5 mx-5">
             <CardHeader className="p-0 m-4">
