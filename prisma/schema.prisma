@@ -25,6 +25,8 @@ model Tech {
   id Int @id @default(autoincrement())
   name String
   image_path String
+  type String
+  level Int
   experiences Experience[]
 }
 
