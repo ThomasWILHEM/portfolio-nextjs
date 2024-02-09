@@ -31,7 +31,7 @@ export default function RootLayout({
                     <SideNavMobile />
                 </nav>
                 <div className="flex-grow md:flex md:overflow-hidden">
-                    <div className="w-full md:w-80 md:block sm:hidden ">
+                    <div className="w-full md:w-80 md:block sm:hidden hidden">
                         <SideNav/>
                     </div>
                     <div className="flex-grow md:overflow-y-auto">{children}</div>
