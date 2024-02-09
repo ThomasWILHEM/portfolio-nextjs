@@ -16,14 +16,14 @@ export default async function Home() {
 
     return (
         <main className={`p-14 h-screen bg`}>
-        <h1 className='mb-4 text-4xl'>
-            Studies
-        </h1>
-        <div className="my-8 mx-12">
-            {experiences.map((experience, index) => (
-                <Experience key={index} {...experience} />
-            ))}
-        </div>
-    </main>
-  );
+            <h1 className='mb-4 text-4xl'>
+                Studies
+            </h1>
+            <div className="my-8 mx-12">
+                {experiences.map((experience, index) => (
+                    <Experience key={index} {...experience} />
+                ))}
+            </div>
+        </main>
+      );
 }
