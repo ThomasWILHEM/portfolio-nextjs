@@ -2,8 +2,9 @@ import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/compo
 import Tech from "@/components/tech";
 import {Button, buttonVariants} from "@/components/ui/button";
 import Link from "next/link";
+import {type} from "os";
 
-export default function Project(props) {
+export default function Project(props: Project) {
 
     return (
         <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 lg:w-2/5 mx-5">

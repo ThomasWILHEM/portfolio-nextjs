@@ -1,7 +1,11 @@
 import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import Tech from "@/components/tech";
 
-export default function Frise({niveau}) {
+interface props{
+    level: number,
+}
+
+export default function Frise({level}: props) {
     const segments = Array(5).fill(null);
     const styles = {
         barre: {
@@ -10,7 +14,7 @@ export default function Frise({niveau}) {
             backgroundColor: '#333333',
         },
         segment: {
-            width: `${20 * niveau}%`,
+            width: `${20 * level}%`,
             height: '10px',
             backgroundColor: '#D9D9D9',
         },

@@ -1,7 +1,7 @@
 import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import Tech from "@/components/tech";
 
-export default function Experience(props) {
+export default function Experience(props: Experience) {
     return (
         <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2">
             <CardHeader className="p-0 m-4">
