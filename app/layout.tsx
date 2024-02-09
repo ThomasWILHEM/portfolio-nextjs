@@ -27,12 +27,12 @@ export default function RootLayout({
             disableTransitionOnChange
         >
             <div className="flex flex-col h-screen">
+                <nav className="md:hidden w-screen">
+                    <SideNavMobile />
+                </nav>
                 <div className="flex-grow md:flex md:overflow-hidden">
-                    <nav className="md:hidden w-screen">
-                        <SideNavMobile />
-                    </nav>
-                    <div className="w-full md:w-80 md:block sm:hidden sm:overflow-y-auto">
-                        <SideNav />
+                    <div className="w-full md:w-80 md:block sm:hidden ">
+                        <SideNav/>
                     </div>
                     <div className="flex-grow md:overflow-y-auto">{children}</div>
                 </div>
