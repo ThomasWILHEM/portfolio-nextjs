@@ -1,13 +1,38 @@
+'use client'
+
 import Image from "next/image";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
+import {FormEvent, useState} from "react";
+import {getMaxAge} from "next/dist/server/image-optimizer";
 
 export default function Home() {
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const onSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({
+          firstname, lastname, email, message
+        }),
+        headers: {
+          'content-type': 'application/json'
+        }
+      });
+    }catch (err: any){
+      console.log(err);
+    }
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center bg w-full">
       <h1 className="font-bold text-5xl mt-16 mb-12">Want to contact me ?</h1>
-      <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 w-4/6">
-        <CardContent>
+      <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 w-4/6 p-6">
           <div className="flex justify-between w-full">
             <div className="flex space-x-2 items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -23,7 +48,6 @@ export default function Home() {
               </svg>
             </div>
           </div>
-        </CardContent>
       </Card>
 
       <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 w-4/6">
@@ -33,24 +57,38 @@ export default function Home() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col justify-between w-full px-14 space-y-6">
+          <form className="flex flex-col justify-between w-full px-14 space-y-6"
+                onSubmit={onSubmit}
+          >
             <div className="flex justify-between">
               <div className="flex flex-col space-y-1 w-96">
                 <label className="ml-2" form="firstname">Firstname</label>
-                <input className="rounded p-2" id="firstname" name="firstname" placeholder="ex: Jack" required/>
+                <input className="rounded p-2" id="firstname" name="firstname" placeholder="ex: Jack" required
+                       value={firstname}
+                       onChange={(e) => setFirstname(e.target.value)}
+                />
               </div>
               <div className="flex flex-col space-y-1 w-96">
                 <label className="ml-2" form="lastname">Lastname</label>
-                <input className="rounded p-2" id="lastname" name="lastname" placeholder="ex: Jones" required/>
+                <input className="rounded p-2" id="lastname" name="lastname" placeholder="ex: Jones" required
+                       value={lastname}
+                       onChange={(e) => setLastname(e.target.value)}
+                />
               </div>
             </div>
             <div className="flex flex-col space-y-1">
               <label className="ml-2" form="email">Email</label>
-              <input className="rounded p-2" id="email" name="email" placeholder="ex: test@mail.com" required type="email"/>
+              <input className="rounded p-2" id="email" name="email" placeholder="ex: test@mail.com" required type="email"
+                     value={email}
+                     onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="flex flex-col space-y-1">
               <label className="ml-2" form="message">Message</label>
-              <textarea className="rounded p-2" id="message" name="message" placeholder="Your message" required/>
+              <textarea className="rounded p-2 h-40" id="message" name="message" placeholder="Your message" required
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+              />
             </div>
             <div className="flex justify-center">
               <Button className="w-80 text-white text-xl">
