@@ -1,17 +1,11 @@
-FROM node:18
+FROM node:20-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
-
-RUN npm install -g prisma
+RUN npm install --omit=dev
 
 COPY . .
 
-RUN prisma generate
-
-RUN npm run build
-
-CMD [ "node", "dist/main.js" ]
+CMD ["npm", "run", "build"]
