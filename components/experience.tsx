@@ -3,7 +3,7 @@ import Tech from "@/components/tech";
 import {Suspense} from "react";
 import {CardSkeleton} from "@/components/skeletons";
 
-export default function Experience(props) {
+export default function Experience(props: Experience) {
     return (
         <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2">
             <CardHeader className="p-0 m-4">

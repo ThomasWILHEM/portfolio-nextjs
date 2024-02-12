@@ -2,9 +2,11 @@ import Experience from "@/components/experience";
 import {useTheme} from "next-themes";
 import {prisma} from "@/lib/prisma";
 
+export const revalidate = 0;
+
 export default async function Home() {
     //const { theme } = useTheme()
-    const experiences = await prisma.experience.findMany({
+    const experiences: Experience[] = await prisma.experience.findMany({
         where: {
             type: {
                 equals : 'study'
