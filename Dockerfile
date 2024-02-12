@@ -58,6 +58,8 @@ RUN chown nextjs:nodejs .next
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+COPY docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
 USER nextjs
 
 EXPOSE 80
@@ -65,6 +67,8 @@ EXPOSE 80
 ENV PORT 80
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
+
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
