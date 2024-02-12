@@ -1,5 +1,7 @@
 import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import Tech from "@/components/tech";
+import {Suspense} from "react";
+import {CardSkeleton} from "@/components/skeletons";
 
 export default function Experience(props) {
     return (
@@ -48,7 +50,7 @@ export default function Experience(props) {
                     <div className="px-5 flex items-center lg:pt-0 pt-5">
                         <div className="flex flex-row flex-wrap">
                             {props.techs.map((tech, index) => (
-                                <Tech key={index} {...tech} />
+                                    <Tech key={index} {...tech} />
                             ))}
                         </div>
                     </div>
