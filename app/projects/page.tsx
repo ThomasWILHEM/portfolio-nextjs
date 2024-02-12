@@ -3,6 +3,8 @@ import {useTheme} from "next-themes";
 import {prisma} from "@/lib/prisma";
 import Project from "@/components/project";
 
+export const revalidate = 0;
+
 export default async function Home() {
     //const { theme } = useTheme()
     const projects: Project[] = await prisma.project.findMany();

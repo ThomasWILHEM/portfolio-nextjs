@@ -6,7 +6,13 @@ services:
     environment:
       - NODE_ENV=production
     ports:
-      - "3000:3000"
+      - "3000:80"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
 
   db:
     image: mariadb

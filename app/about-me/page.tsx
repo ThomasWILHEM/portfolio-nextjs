@@ -6,6 +6,8 @@ import {prisma} from "@/lib/prisma";
 import Frise from "@/components/frise";
 import Levels from "@/components/levels";
 
+export const revalidate = 0;
+
 export default async function Home() {
     const languages: Tech[] = await prisma.tech.findMany({
         where: {
