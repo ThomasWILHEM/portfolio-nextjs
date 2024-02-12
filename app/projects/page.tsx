@@ -1,9 +1,11 @@
-import Experience from "@/components/experience";
-import {useTheme} from "next-themes";
 import {prisma} from "@/lib/prisma";
 import Project from "@/components/project";
+import {Metadata} from "next";
 
 export const revalidate = 0;
+export const metadata: Metadata = {
+    title: 'Projects',
+};
 
 export default async function Home() {
     //const { theme } = useTheme()

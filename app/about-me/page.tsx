@@ -5,10 +5,14 @@ import Tech from "@/components/tech";
 import {prisma} from "@/lib/prisma";
 import Frise from "@/components/frise";
 import Levels from "@/components/levels";
+import {Metadata} from "next";
 
 export const revalidate = 0;
+export const metadata: Metadata = {
+    title: 'About Me',
+};
 
-export default async function Home() {
+export default async function About() {
     const languages: Tech[] = await prisma.tech.findMany({
         where: {
             type: {

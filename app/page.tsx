@@ -1,5 +1,8 @@
 import Image from "next/image";
-
+import {Metadata} from "next";
+export const metadata: Metadata = {
+    title: 'Home | Thomas\'s Website',
+};
 export default function Home() {
   return (
     <main className="flex h-screen flex-col bg relative">

@@ -1,9 +1,12 @@
 import Experience from "@/components/experience";
 import {useTheme} from "next-themes";
 import {prisma} from "@/lib/prisma";
+import {Metadata} from "next";
 
 export const revalidate = 0;
-
+export const metadata: Metadata = {
+    title: 'Studies',
+};
 export default async function Home() {
     //const { theme } = useTheme()
     const experiences: Experience[] = await prisma.experience.findMany({
