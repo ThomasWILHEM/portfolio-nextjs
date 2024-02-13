@@ -7,7 +7,7 @@ import {type} from "os";
 export default function Project(props: Project) {
 
     return (
-        <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 lg:w-2/5 mx-5">
+        <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 lg:w-2/5 mx-5 shadow-xl">
             <CardHeader className="p-0 m-4">
                 <CardTitle className="text-2xl">
                     {props.name}

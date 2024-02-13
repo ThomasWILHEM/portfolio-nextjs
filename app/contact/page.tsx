@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-light dark:bg w-full">
       <h1 className="font-bold lg:text-5xl text-3xl lg:mt-6 mt-6">Want to contact me ?</h1>
-      <Card className="my-5 dark:text-white dark:bg-neutral-900 w-5/6 lg:w-4/6 p-6">
+      <Card className="my-5 dark:text-white dark:bg-neutral-900 w-5/6 lg:w-4/6 p-6 shadow-xl">
           <div className="flex flex-col items-center lg:flex-row lg:justify-between w-full space-y-2">
             <div className="flex space-x-2 items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -99,7 +99,7 @@ export default function Home() {
           </div>
       </Card>
 
-      <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 w-5/6 lg:w-4/6">
+      <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 w-5/6 lg:w-4/6 shadow-2xl">
         <CardHeader>
           <CardTitle>
             <p className="text-center font-bold text-3xl">Contact Form</p>
@@ -112,14 +112,16 @@ export default function Home() {
             <div className="flex lg:flex-row flex-col justify-between space-y-5 lg:space-y-0">
               <div className="flex flex-col space-y-1 lg:w-96">
                 <label className="ml-2" form="firstname">Firstname</label>
-                <input className="rounded p-2" id="firstname" name="firstname" placeholder="ex: Jack" required
+                <input className="rounded p-2 border-slate-600 border dark:border-0"
+                       id="firstname" name="firstname" placeholder="ex: Jack" required
                        value={firstname}
                        onChange={(e) => setFirstname(e.target.value)}
                 />
               </div>
               <div className="flex flex-col space-y-1 lg:w-96">
                 <label className="ml-2" form="lastname">Lastname</label>
-                <input className="rounded p-2" id="lastname" name="lastname" placeholder="ex: Jones" required
+                <input className="rounded p-2 border-slate-600 border dark:border-0"
+                       id="lastname" name="lastname" placeholder="ex: Jones" required
                        value={lastname}
                        onChange={(e) => setLastname(e.target.value)}
                 />
@@ -127,14 +129,16 @@ export default function Home() {
             </div>
             <div className="flex flex-col space-y-1">
               <label className="ml-2" form="email">Email</label>
-              <input className="rounded p-2" id="email" name="email" placeholder="ex: test@mail.com" required type="email"
+              <input className="rounded p-2 border-slate-600 border dark:border-0"
+                     id="email" name="email" placeholder="ex: test@mail.com" required type="email"
                      value={email}
                      onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="flex flex-col space-y-1">
               <label className="ml-2" form="message">Message</label>
-              <textarea className="rounded p-2 h-40" id="message" name="message" placeholder="Your message" required
+              <textarea className="rounded p-2 h-40 border-slate-600 border dark:border-0"
+                        id="message" name="message" placeholder="Your message" required
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
               />
@@ -148,7 +152,7 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center">
-              <Button className="w-80 text-white text-xl">
+              <Button className="w-80 text-white text-xl shadow-blue-600">
                 Send Message
               </Button>
             </div>

@@ -7,7 +7,7 @@ import {CardSkeleton} from "@/components/skeletons";
 
 export default function Experience(props: Experience) {
     return (
-        <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2">
+        <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 shadow-xl">
             <CardHeader className="p-0 m-4">
                 <CardTitle className="text-2xl">
                     {props.name}
