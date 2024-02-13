@@ -95,8 +95,8 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center">
-              <Button className="w-80 text-white text-xl">
-                Send
+              <Button className="w-80 text-white text-xl" disabled>
+                Not Working
               </Button>
             </div>
           </form>
