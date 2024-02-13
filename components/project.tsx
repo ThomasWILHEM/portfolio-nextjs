@@ -1,8 +1,6 @@
 import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
-import Tech from "@/components/tech";
 import {Button, buttonVariants} from "@/components/ui/button";
 import Link from "next/link";
-import {type} from "os";
 
 export default function Project(props: Project) {
 

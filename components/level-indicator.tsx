@@ -1,4 +1,3 @@
-import {Badge} from "@/components/ui/badge";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
 
 interface props{
@@ -6,7 +5,6 @@ interface props{
 }
 
 export default function LevelIndicator({level}: props) {
-    const colors = ['green-600', 'yellow-600', 'red-600'];
     let bg = [];
 
     // Basic

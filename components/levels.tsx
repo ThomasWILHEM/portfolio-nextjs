@@ -1,4 +1,4 @@
-import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
+import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/card";
 import Tech from "@/components/tech";
 import Image from "next/image";
 import LevelIndicator from "@/components/level-indicator";

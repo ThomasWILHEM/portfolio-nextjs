@@ -1,10 +1,8 @@
 'use client'
 
-import Image from "next/image";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {FormEvent, RefObject, useRef, useState} from "react";
-import {getMaxAge} from "next/dist/server/image-optimizer";
 import {Toaster} from "@/components/ui/sonner";
 import {toast} from "sonner";
 // @ts-ignore

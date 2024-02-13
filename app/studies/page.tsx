@@ -1,5 +1,4 @@
 import Experience from "@/components/experience";
-import {useTheme} from "next-themes";
 import prisma from "@/lib/prisma";
 import {Metadata} from "next";
 

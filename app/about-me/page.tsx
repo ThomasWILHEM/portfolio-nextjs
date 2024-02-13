@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Experience from "@/components/experience";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent} from "@/components/ui/card";
 import Tech from "@/components/tech";
 import prisma from "@/lib/prisma";
-import Frise from "@/components/frise";
 import Levels from "@/components/levels";
 import {Metadata} from "next";
 import LevelIndicator from "@/components/level-indicator";
