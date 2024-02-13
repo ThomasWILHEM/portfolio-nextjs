@@ -5,6 +5,8 @@ import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {FormEvent, useState} from "react";
 import {getMaxAge} from "next/dist/server/image-optimizer";
+import {Toaster} from "@/components/ui/sonner";
+import {toast} from "sonner";
 
 export default function Home() {
   const [firstname, setFirstname] = useState('');
@@ -32,9 +34,10 @@ export default function Home() {
     .then((res) => res.json())
     .then((data) => {
       resetFields();
+      toast.success('Your message has been send')
     })
     .catch((err) => {
-      alert("Ooops! unfortunately some error has occurred.");
+      toast.error('There has been a problem. Please try again');
     });
   }
 
@@ -118,6 +121,7 @@ export default function Home() {
           </form>
         </CardContent>
       </Card>
+      <Toaster richColors/>
     </main>
   );
 }
