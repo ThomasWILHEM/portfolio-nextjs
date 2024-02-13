@@ -2,10 +2,11 @@ import Image from "next/image";
 import Experience from "@/components/experience";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import Tech from "@/components/tech";
-import {prisma} from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import Frise from "@/components/frise";
 import Levels from "@/components/levels";
 import {Metadata} from "next";
+import LevelIndicator from "@/components/level-indicator";
 
 export const revalidate = 0;
 export const metadata: Metadata = {
@@ -70,16 +71,38 @@ export default async function About() {
                       I try to stay tuned with new techs and I like to learn new things by taking online courses.
                   </Card>
               </div>
-              <div className="bg-white dark:bg-neutral-900 rounded-3xl shadow-xl">
+              <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 shadow-xl w-full">
                   <h1 className="text-center text-5xl p-6">
                       What I Know/Use
                   </h1>
-              </div>
-              <div>
+                  <div className="border-b border-gray-200 mx-4"></div>
+                  <CardContent className="p-0 m-4 flex md:space-x-5">
+                      <div className="flex flex-col items-center text-center basis-1/4 space-y-1.5">
+                          <LevelIndicator level={1}/>
+                          <p className="font-bold">Basic</p>
+                          <p className="text-sm">I have a basic understanding of the concepts and I can apply them to simple projects. </p>
+                      </div>
+                      <div className="flex flex-col items-center text-center basis-1/4 space-y-1.5">
+                          <LevelIndicator level={3}/>
+                          <p className="font-bold">Intermediate</p>
+                          <p className="text-sm">I can confidently use the tools and technologies to complete bigger projects. </p>
+                      </div>
+                      <div className="flex flex-col items-center text-center basis-1/4 space-y-1.5">
+                          <LevelIndicator level={4}/>
+                          <p className="font-bold">Advanced</p>
+                          <p className="text-sm">I have extensive experience and I can lead projects and contribute to complex tasks.</p>
+                      </div>
+                      <div className="flex flex-col items-center text-center basis-1/4 space-y-1.5">
+                          <LevelIndicator level={5}/>
+                          <p className="font-bold">Master</p>
+                          <p className="text-sm">I know everything about the tech (IMPOSSIBLE) </p>
+                      </div>
+                  </CardContent>
+              </Card>
+              <div className="flex flex-col lg:flex-row justify-around lg:space-x-5">
                   <Levels title={"Languages"} techs={languages}/>
                   <Levels title={"Frameworks & Libraries"} techs={frameworks}/>
                   <Levels title={"Utils"} techs={utils}/>
-
               </div>
           </div>
       </main>
