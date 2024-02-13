@@ -3,54 +3,80 @@
 import Image from "next/image";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
-import {FormEvent, useState} from "react";
+import {FormEvent, RefObject, useRef, useState} from "react";
 import {getMaxAge} from "next/dist/server/image-optimizer";
 import {Toaster} from "@/components/ui/sonner";
 import {toast} from "sonner";
+// @ts-ignore
+import ReCAPTCHA from 'react-google-recaptcha';
+import axios from "axios";
 
 export default function Home() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [captchaToken, setCaptchaToken] = useState('');
+  const recaptcha: RefObject<ReCAPTCHA> = useRef(null);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (firstname == "" && email == "" && lastname == "" && message == "") {
-      alert("Information missing !");
+      toast.error("Information are missing !");
       return false;
     }
 
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify({
-        firstname, lastname, email, message
-      }),
-      headers: {
-        'content-type': 'application/json'
-      }
+    await axios.post('/api/contact', {
+      firstname,
+      lastname,
+      email,
+      message,
+      captchaToken
     })
-    .then((res) => res.json())
-    .then((data) => {
-      resetFields();
-      toast.success('Your message has been send')
-    })
-    .catch((err) => {
-      toast.error('There has been a problem. Please try again');
-    });
+        .then(response => {
+          resetFields();
+          toast.success('Your message has been sent!'); // Corrected typo
+
+          // Handle potential response data if the API sends it:
+          if (response.data) {
+            // Process or display response data as needed
+            console.log('Response data:', response.data);
+          }
+        })
+        .catch(error => {
+          // Handle errors consistently across different error types
+          if (error.response) {
+            // Server-side error (4xx or 5xx status code)
+            toast.error(`Server error: ${error.response.data.message || error.response.statusText}`);
+          } else if (error.request) {
+            // Request-level error (e.g., network)
+            toast.error('Network error occurred. Please check your internet connection.');
+          } else {
+            // Other errors
+            toast.error('An error occurred:', error.message);
+          }
+        });
   }
+
+  const onCaptchaChange = (token: string | null) => {
+    // Set the captcha token when the user completes the reCAPTCHA
+    if (token) {
+      setCaptchaToken(token);
+    }
+  };
 
   function resetFields(){
     setFirstname("");
     setLastname("");
     setEmail("");
     setMessage("");
+    recaptcha?.current?.reset();
   }
 
   return (
     <main className="flex min-h-screen flex-col items-center bg w-full">
-      <h1 className="font-bold lg:text-5xl text-3xl lg:mt-16 mt-6 lg:mb-12">Want to contact me ?</h1>
+      <h1 className="font-bold lg:text-5xl text-3xl lg:mt-6 mt-6">Want to contact me ?</h1>
       <Card className="my-5 dark:text-white dark:bg-neutral-900 w-5/6 lg:w-4/6 p-6">
           <div className="flex flex-col items-center lg:flex-row lg:justify-between w-full space-y-2">
             <div className="flex space-x-2 items-center">
@@ -114,8 +140,16 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center">
+              <ReCAPTCHA
+                  size="normal"
+                  sitekey="6LdQbnEpAAAAAJWXgJj8SjlP9h4_Ff7rk8ZXZEkb"
+                  onChange={onCaptchaChange}
+                  ref={recaptcha}
+              />
+            </div>
+            <div className="flex justify-center">
               <Button className="w-80 text-white text-xl">
-                Not Working
+                Send Message
               </Button>
             </div>
           </form>
