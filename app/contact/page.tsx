@@ -14,19 +14,35 @@ export default function Home() {
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify({
-          firstname, lastname, email, message
-        }),
-        headers: {
-          'content-type': 'application/json'
-        }
-      });
-    }catch (err: any){
-      console.log(err);
+
+    if (firstname == "" && email == "" && lastname == "" && message == "") {
+      alert("Information missing !");
+      return false;
     }
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstname, lastname, email, message
+      }),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      resetFields();
+    })
+    .catch((err) => {
+      alert("Ooops! unfortunately some error has occurred.");
+    });
+  }
+
+  function resetFields(){
+    setFirstname("");
+    setLastname("");
+    setEmail("");
+    setMessage("");
   }
 
   return (
@@ -95,7 +111,7 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center">
-              <Button className="w-80 text-white text-xl" disabled>
+              <Button className="w-80 text-white text-xl">
                 Not Working
               </Button>
             </div>
