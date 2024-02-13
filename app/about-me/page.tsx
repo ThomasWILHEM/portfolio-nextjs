@@ -38,7 +38,7 @@ export default async function About() {
     });
 
   return (
-      <main className={`lg:p-14 p-6 bg`}>
+      <main className={`lg:p-14 p-6 bg-light dark:bg`}>
           <h1 className='mb-4 text-4xl'>
               About Me
           </h1>

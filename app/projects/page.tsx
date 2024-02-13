@@ -12,7 +12,7 @@ export default async function Home() {
     const projects: Project[] = await prisma.project.findMany();
 
     return (
-        <main className={`lg:p-14 p-6 h-full bg`}>
+        <main className={`lg:p-14 p-6 h-full bg-light dark:bg`}>
         <h1 className='mb-4 text-4xl'>
             Projects
         </h1>

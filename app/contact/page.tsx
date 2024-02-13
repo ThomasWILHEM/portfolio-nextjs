@@ -75,7 +75,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg w-full">
+    <main className="flex min-h-screen flex-col items-center bg-light dark:bg w-full">
       <h1 className="font-bold lg:text-5xl text-3xl lg:mt-6 mt-6">Want to contact me ?</h1>
       <Card className="my-5 dark:text-white dark:bg-neutral-900 w-5/6 lg:w-4/6 p-6">
           <div className="flex flex-col items-center lg:flex-row lg:justify-between w-full space-y-2">
