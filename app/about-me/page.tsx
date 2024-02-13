@@ -69,7 +69,7 @@ export default async function About() {
                       I try to stay tuned with new techs and I like to learn new things by taking online courses.
                   </Card>
               </div>
-              <Card className="my-5 dark:text-white dark:bg-neutral-900 p-2 shadow-xl w-full">
+              <Card className="mb-5 dark:text-white dark:bg-neutral-900 p-2 shadow-xl w-full">
                   <h1 className="text-center text-5xl p-6">
                       What I Know/Use
                   </h1>
