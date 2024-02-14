@@ -39,17 +39,21 @@ export default function SideNav() {
                     </DropdownMenu>
                 </div>
                 <div className="w-full flex justify-center my-6">
-                    <Image
-                        src="/image.jpg"
-                        height={200}
-                        width={200}
-                        alt="Dummy Image"
-                        className="rounded-full aspect-square object-cover border-blue-600 border-8"
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/image.jpg"
+                            height={200}
+                            width={200}
+                            alt="Dummy Image"
+                            className="rounded-full aspect-square object-cover border-blue-600 border-8"
+                        />
+                    </Link>
                 </div>
-                <h1 className="text-center font-extrabold text-2xl my-5">
-                    Thomas WILHEM
-                </h1>
+                <Link href="/">
+                    <h1 className="text-center font-extrabold text-2xl my-5">
+                        Thomas WILHEM
+                    </h1>
+                </Link>
                 <div className="flex flex-row justify-around mx-12 my-8">
                     <Link href="https://www.linkedin.com/in/thomas-wilhem-3a5010211/" target="_blank">
                         <Image

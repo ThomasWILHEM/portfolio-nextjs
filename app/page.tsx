@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   return (
-    <main className="flex h-screen flex-col bg-light dark:bg relative">
+    <main className="flex h-screen flex-col relative">
       <Image className="absolute bottom-0 right-0
                         xl:w-auto
                         sm:w-full

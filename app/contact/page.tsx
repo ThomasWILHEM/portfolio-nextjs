@@ -34,24 +34,14 @@ export default function Home() {
     })
         .then(response => {
           resetFields();
-          toast.success('Your message has been sent!'); // Corrected typo
-
-          // Handle potential response data if the API sends it:
-          if (response.data) {
-            // Process or display response data as needed
-            console.log('Response data:', response.data);
-          }
+          toast.success('Your message has been sent!');
         })
         .catch(error => {
-          // Handle errors consistently across different error types
           if (error.response) {
-            // Server-side error (4xx or 5xx status code)
             toast.error(`Server error: ${error.response.data.message || error.response.statusText}`);
           } else if (error.request) {
-            // Request-level error (e.g., network)
             toast.error('Network error occurred. Please check your internet connection.');
           } else {
-            // Other errors
             toast.error('An error occurred:', error.message);
           }
         });
@@ -73,7 +63,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-light dark:bg w-full">
+    <main className="flex min-h-screen flex-col items-center w-full">
       <h1 className="font-bold lg:text-5xl text-3xl lg:mt-6 mt-6">Want to contact me ?</h1>
       <Card className="my-5 dark:text-white dark:bg-neutral-900 w-5/6 lg:w-4/6 p-6 shadow-xl">
           <div className="flex flex-col items-center lg:flex-row lg:justify-between w-full space-y-2">
@@ -104,7 +94,7 @@ export default function Home() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col justify-between w-full px-14 space-y-6"
+          <form className="flex flex-col justify-between w-full px-5 lg:px-14 space-y-6"
                 onSubmit={onSubmit}
           >
             <div className="flex lg:flex-row flex-col justify-between space-y-5 lg:space-y-0">

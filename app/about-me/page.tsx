@@ -5,6 +5,7 @@ import prisma from "@/lib/prisma";
 import Levels from "@/components/levels";
 import {Metadata} from "next";
 import LevelIndicator from "@/components/level-indicator";
+import Link from "next/link";
 
 export const revalidate = 0;
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default async function About() {
     });
 
   return (
-      <main className={`lg:p-14 p-6 bg-light dark:bg`}>
+      <main className={`lg:p-14 px-6 py-2`}>
           <h1 className='mb-4 text-4xl'>
               About Me
           </h1>
@@ -52,17 +53,22 @@ export default async function About() {
                       </Card>
                   </div>
                   <Image src="/me2.png" alt="Me" width={500} height={500} className="basis-1-5 hidden lg:block"/>
-                  <div className="flex flex-col justify-around basis-2/5 text-2xl mt-24">
+                  <div className="flex flex-col justify-around basis-2/5 text-2xl mt-24 relative">
                       <Card className="bg-blue-500 dark:bg-blue-600 border-0 p-6 shadow-2xl text-white">
                           I use computers since I was 8 and I started programming a while ago (for me) in 2016.
                       </Card>
                       <Card className="bg-blue-500 dark:bg-blue-600 border-0 p-6 shadow-2xl text-white">
                           I try to stay tuned with new techs and I like to learn new things by taking online courses.
                       </Card>
+                      <Link href="#knowledge">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-14 h-14 absolute bottom-10 right-0">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                          </svg>
+                      </Link>
                   </div>
               </div>
               <div className="flex flex-col lg:hidden space-y-2 mb-5 text-xl">
-                  <Card className="bg-blue-600 border-0 p-6 shadow-2xl">
+                  <Card className="bg-blue-600 border-0 p-6 shadow-2xl text-white">
                       My name is Thomas, I am a web developer and I live in Bordeaux, France. <br/><br/>
                       I use computers since I was 8 and I started programming a while ago (for me) in 2016.<br/><br/>
                       I then decided to specialize in web development, and that’s how I came to do what I do.<br/><br/>
@@ -70,7 +76,7 @@ export default async function About() {
                   </Card>
               </div>
               <Card className="mb-5 dark:text-white dark:bg-neutral-900 p-2 shadow-xl w-full">
-                  <h1 className="text-center text-5xl p-6">
+                  <h1 className="text-center text-5xl p-6" id="knowledge">
                       What I Know/Use
                   </h1>
                   <div className="border-b border-gray-200 mx-4"></div>
@@ -100,7 +106,7 @@ export default async function About() {
               <div className="flex flex-col lg:flex-row justify-around lg:space-x-5">
                   <Levels title={"Languages"} techs={languages}/>
                   <Levels title={"Frameworks & Libraries"} techs={frameworks}/>
-                  <Levels title={"Utils"} techs={utils}/>
+                  <Levels title={"Utilities"} techs={utils}/>
               </div>
           </div>
       </main>

@@ -19,7 +19,7 @@ export default async function Home() {
 
 
     return (
-        <main className={`lg:p-14 p-6 h-full bg-light dark:bg`}>
+        <main className={`lg:p-14 px-6 py-2 h-full`}>
             <h1 className='mb-4 text-4xl'>
                 Studies
             </h1>

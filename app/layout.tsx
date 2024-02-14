@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
 
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
         <body className={inter.className}>
         <ThemeProvider
             attribute="class"
@@ -31,7 +31,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
         >
-            <div className="flex flex-col h-screen">
+            <div className="flex flex-col h-screen bg-light dark:bg">
                 <nav className="md:hidden w-screen">
                     <SideNavMobile />
                 </nav>
