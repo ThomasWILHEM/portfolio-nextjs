@@ -55,7 +55,7 @@ export default function SideNav() {
                     </h1>
                 </Link>
                 <div className="flex flex-row justify-around mx-12 my-8">
-                    <Link href="https://www.linkedin.com/in/thomas-wilhem-3a5010211/" target="_blank">
+                    <Link href="https://www.linkedin.com/in/thomas-wilhem-3a5010211/" target="_blank" rel="nofollow">
                         <Image
                             src="/linkedin.png"
                             height={40}
@@ -64,7 +64,7 @@ export default function SideNav() {
                             className="rounded-full aspect-square object-cover"
                         />
                     </Link>
-                    <Link href="https://github.com/ThomasWILHEM" target="_blank">
+                    <Link href="https://github.com/ThomasWILHEM" target="_blank" rel="nofollow">
                         <Image
                             src={theme != 'light' ? '/github-mark-white.png' : '/github-mark.png'}
                             height={40}
@@ -73,7 +73,7 @@ export default function SideNav() {
                             className="rounded-full aspect-square object-cover"
                         />
                     </Link>
-                    <Link href="https://www.instagram.com/thomas_wlhm/" target="_blank">
+                    <Link href="https://www.instagram.com/thomas_wlhm/" target="_blank" rel="nofollow">
                         <Image
                             src="/instagram.svg"
                             height={40}
