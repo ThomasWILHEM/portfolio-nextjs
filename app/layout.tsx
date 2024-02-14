@@ -47,7 +47,7 @@ export default function RootLayout({
             </div>
         </ThemeProvider>
         </body>
-        <GoogleAnalytics gaId={process.env.ANALYTICS_ID ?? ""} />
+        <GoogleAnalytics gaId="G-7YVCY2905B" />
     </html>
     );
 }
