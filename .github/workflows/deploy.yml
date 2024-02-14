@@ -31,7 +31,7 @@ jobs:
           export RECAPTCHA_SECRET_KEY="${{ secrets.RECAPTCHA_SECRET_KEY }}"
 
       - name: connect and pull
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "export RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}" && export RECAPTCHA_SECRET_KEY="${{ secrets.RECAPTCHA_SECRET_KEY }}" && cd ${{ secrets.WORK_DIR }} && docker compose pull && docker compose up -d && exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "export RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}" && export RECAPTCHA_SECRET_KEY="${{ secrets.RECAPTCHA_SECRET_KEY }}" && export ANALYTICS_ID="${{ secrets.ANALYTICS_ID }}" && cd ${{ secrets.WORK_DIR }} && docker compose pull && docker compose up -d && exit"
 
       - name: cleanup
         run: rm -rf ~/.ssh

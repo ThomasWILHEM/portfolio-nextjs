@@ -5,6 +5,7 @@ import SideNav from "@/components/sidenav";
 import {ThemeProvider} from "@/components/theme-provider";
 import SideNavMobile from "@/components/sidenav-mobile";
 import {Metadata} from "next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -22,6 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+    // @ts-ignore
+    // @ts-ignore
     return (
         <html lang="en" className="scroll-smooth">
         <body className={inter.className}>
@@ -44,6 +47,7 @@ export default function RootLayout({
             </div>
         </ThemeProvider>
         </body>
-        </html>
+        <GoogleAnalytics gaId={process.env.ANALYTICS_ID ?? ""} />
+    </html>
     );
 }
