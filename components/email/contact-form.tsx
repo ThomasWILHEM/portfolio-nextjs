@@ -12,9 +12,9 @@ export const EmailTemplate = ({
       email
   }: Email) => (
     <div>
-        <p>Hello Thomas,</p>
+        <p>New Message from {firstname} {lastname}</p>
         <p>
-            {firstname} {lastname} sent you a message !
+            Email: {email}
         </p>
         <p>
             {message}
